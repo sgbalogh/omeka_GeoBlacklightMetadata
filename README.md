@@ -1,5 +1,5 @@
 # GeoBlacklight Metadata plugin for Omeka
-This is the beginning of a plugin to extend [GeoBlacklight](http://geoblacklight.org/) support to [Omeka](http://omeka.org/). This is currently being developed as a way to use Omeka as an interface for collecting metadata about user-contributed spatial data sets, and then transferring that data to the GeoBlacklight discovery platform.
+This is the beginning of a plugin to extend [GeoBlacklight](http://geoblacklight.org/) record exporting support to [Omeka](http://omeka.org/). This is currently being developed as a way to use Omeka as an interface for collecting metadata about user-contributed spatial data sets, and then transferring that data to the GeoBlacklight discovery platform.
 
 This plugin uses already-exisiting Dublin Core fields, as well as Dublin Core Extended fields (therefore [this](http://omeka.org/add-ons/plugins/dublin-core-extended/) is a necessary prerequisite!), and fields from a unique element set that will be created.
 
