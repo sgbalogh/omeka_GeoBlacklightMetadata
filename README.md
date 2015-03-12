@@ -18,5 +18,6 @@ This plugin uses already-exisiting Dublin Core fields, as well as Dublin Core Ex
 		<field name="dc_description_s">Here is the DC description</field>
 ```
 
-
+####Note:
+This plugin (the entire containing folder) will need to be renamed to *GeoBlacklightElements* in order for Omeka to recognize it.
 
