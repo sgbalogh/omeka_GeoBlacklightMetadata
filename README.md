@@ -19,5 +19,5 @@ This plugin uses already-exisiting Dublin Core fields, as well as Dublin Core Ex
 ```
 
 ####Note:
-This plugin (the entire containing folder) will need to be renamed to *GeoBlacklightElements* in order for Omeka to recognize it.
+This plugin, meaning the entire containing folder, will need to be renamed to *GeoBlacklightMetadata* (so, omit the *omeka_* prefix) in order for Omeka to recognize it.
 
