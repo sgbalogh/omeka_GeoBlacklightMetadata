@@ -50,15 +50,15 @@
         array(
             'label' => 'GeoRSSBox',
             'name'  => 'GeoRSS Box',
-            'description' => 'Bounding box as maximum values for S W N E',
-            'comment' => 'Provide the coordinates for the area your layer covers. To do this, use this bounding box tool <http://boundingbox.klokantech.com/> and draw a box around the total area your layer represents. Toggle down to CSV, copy the value to your clipboard, and then paste the value here. Finally, remove the commas and leave white spaces in between the numbers.',
+            'description' => 'This field should be overwritten by the GeoBlacklight plugin installer, since it contains HTML. You should not be seeing this!',
+            'comment' => 'This field should be overwritten by the GeoBlacklight plugin installer, since it contains HTML. You should not be seeing this!',
             'data_type'   => 'Tiny Text',
         ),
 
         array(
             'label' => 'GeoRSSPoly',
             'name'  => 'GeoRSS Polygon',
-            'description' =>'Shape of the layer as a Polygon in the form S W N W N E S E S W',
+            'description' =>'This field should be overwritten by the GeoBlacklight plugin installer, since it contains HTML. You should not be seeing this!',
             'comment' => 'If you are depositing a data set, leave this field blank.',
             'data_type'   => 'Tiny Text',
         ),

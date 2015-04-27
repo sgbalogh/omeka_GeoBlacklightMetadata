@@ -44,7 +44,8 @@ class GeoBlacklightMetadataPlugin extends Omeka_Plugin_AbstractPlugin
         'dc_temporal_edit' => array('ElementForm', 'Item', 'Dublin Core', 'Temporal Coverage'),
         'dc_issued_edit' => array('ElementForm', 'Item', 'Dublin Core', 'Date Issued'),
         'dc_isPartOf_edit' => array('ElementForm', 'Item', 'Dublin Core', 'Is Part Of'),
-        'geoblacklight_box_edit' => array('ElementForm', 'Item', 'GeoBlacklight', 'GeoRSS Box'),
+        'geoblacklight_grbox_edit' => array('ElementForm', 'Item', 'GeoBlacklight', 'GeoRSS Box'),
+        'geoblacklight_georsspoly_description_edit' => array('ElementForm', 'Item', 'GeoBlacklight', 'GeoRSS Polygon'),
     );
 
 
@@ -167,22 +168,22 @@ class GeoBlacklightMetadataPlugin extends Omeka_Plugin_AbstractPlugin
     }
     public function dc_language_edit($components, $args)
     {
-        $components['comment'] = "Select the language from the menu below. If your language is not on the list, leave this field blank. 98 percent of the time, the language will be \"eng\"";
+        $components['comment'] = "Select the language from the menu below. If your language is not on the list, leave this field blank. 98 percent of the time, the language will be \"<tt>eng</tt>\"";
         return $components;
     }
     public function dc_publisher_edit($components, $args)
     {
-        $components['comment'] = "Describe the publisher of the map if you know it. If you are unsure, leave this field blank. All entries should be taken from the <a href=\"http://authorities.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&PAGE=First\">LOC Name Authority</a> so search for specific terms with this form and use the names it generates. If you can't find an exact name, just leave blank.";
+        $components['comment'] = "Describe the publisher of the map if you know it. If you are unsure, leave this field blank. All entries should be taken from the <a href=\"http://authorities.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&PAGE=First\" target=\"_blank\">LOC Name Authority</a> so search for specific terms with this form and use the names it generates. If you can't find an exact name, just leave blank.";
         return $components;
     }
     public function dc_relation_edit($components, $args)
     {
-        $components['comment'] = "Complete this field by entering the URI associated with the seven-digit GeoNames number. The format is as follows: <br> http://sws.geonames.org/#######/about/rdf <br> Separate multiple names into individual fields. If you have not identified any place names for your layer, leave this field blank.";
+        $components['comment'] = "Complete this field by entering the URI associated with the seven-digit GeoNames number. The format is as follows:<br><tt>http://sws.geonames.org/#######/about/rdf</tt><br><br>Separate multiple names into individual fields. If you have not identified any place names for your layer, leave this field blank.";
         return $components;
     }
     public function dc_subject_edit($components, $args)
     {
-        $components['comment'] = "Assign subject headings from the Library of Congress authority only (<a href=\"http://authorities.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&PAGE=First\">more info</a>). All terms must come from the drop down menu. You are encouraged to add at least 5-6 terms, but do so by adding fields with the \"Add Input\" button.";
+        $components['comment'] = "Assign subject headings from the Library of Congress authority only (<a href=\"http://authorities.loc.gov/cgi-bin/Pwebrecon.cgi?DB=local&PAGE=First\" target=\"_blank\">more info</a>). All terms must come from the drop down menu. You are encouraged to add at least 5-6 terms, but do so by adding fields with the \"Add Input\" button.";
         return $components;
     }
     public function dc_type_edit($components, $args)
@@ -192,17 +193,17 @@ class GeoBlacklightMetadataPlugin extends Omeka_Plugin_AbstractPlugin
     }
     public function dc_spatial_edit($components, $args)
     {
-        $components['comment'] = "Associate as many place names to your layer as make sense for discovery of the data. Focus primarily on the names of administrative units but also include other place names. Strive to have at least 3-4 place names. All names must align with the GeoNames ontology. If you need help finding a specific place name, <a href=\"http://www.geonames.org/v3\">click here</a> and search via the map. If you have any doubts, leave this field blank.";
+        $components['comment'] = "Associate as many place names to your layer as make sense for discovery of the data. Focus primarily on the names of administrative units but also include other place names. Strive to have at least 3-4 place names. All names must align with the GeoNames ontology. If you need help finding a specific place name, <a href=\"http://www.geonames.org/v3\" target=\"_blank\">click here</a> and search via the map. If you have any doubts, leave this field blank.";
         return $components;
     }
     public function dc_temporal_edit($components, $args)
     {
-        $components['comment'] = "Indicate the date or date range of the data associated with the content. Use only 4-digit years (2015 or 2012-2015)";
+        $components['comment'] = "Indicate the date or date range of the data associated with the content. Use only 4-digit years (<tt>2015</tt> or <tt>2012-2015</tt>)";
         return $components;
     }
     public function dc_issued_edit($components, $args)
     {
-        $components['comment'] = "Only include this date if it is available. If you are submitting an originally-created data set, put the current date in. Only use MM/DD/YYYY as a format in this field. Otherwise, leave it blank.";
+        $components['comment'] = "Only include this date if it is available. If you are submitting an originally-created data set, put the current date in. Only use <tt>MM/DD/YYYY</tt> as a format in this field. Otherwise, leave it blank.";
         return $components;
     }
     public function dc_isPartOf_edit($components, $args)
@@ -210,9 +211,15 @@ class GeoBlacklightMetadataPlugin extends Omeka_Plugin_AbstractPlugin
         $components['comment'] = "If you are depositing a data set, leave this field blank.";
         return $components;
     }
-    public function geoblacklight_box_edit($components, $args)
+    public function geoblacklight_grbox_edit($components, $args)
     {
-        $components['comment'] = "Provide the coordinates for the area your layer covers. To do this, use <a href=\"http://boundingbox.klokantech.com/\">this bounding box tool</a> and draw a box around the total area your layer represents. Toggle down to CSV, copy the value to your clipboard, and then paste the value here. Finally, remove the commas and leave white spaces in between the numbers.";
+    	$components['description'] = "Bounding box as maximum values for <tt>S W N E</tt><br><br>";
+        $components['comment'] = "Provide the coordinates for the area your layer covers. To do this, use <a href=\"http://boundingbox.klokantech.com/\" target=\"_blank\">this bounding box tool</a> and draw a box around the total area your layer represents. Toggle down to CSV, copy the value to your clipboard, and then paste the value here. Finally, remove the commas and leave white spaces in between the numbers.";
+        return $components;
+    }
+     public function geoblacklight_georsspoly_description_edit($components, $args)
+    {
+        $components['description'] = "Shape of the layer as a Polygon in the form:<br><tt>S W N W N E S E S W</tt><br>";
         return $components;
     }
     
